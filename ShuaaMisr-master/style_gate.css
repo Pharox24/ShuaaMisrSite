@@ -1,0 +1,58 @@
+/* Reset and base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Pulse effect (assumed from original) */
+.pulse-effect {
+  transition: transform 0.2s ease-in-out;
+}
+
+.pulse-effect:hover {
+  transform: scale(1.05);
+}
+
+/* Focus states for accessibility */
+a:focus, button:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Responsive image loading */
+img {
+  loading: lazy;
+}
+
+/* Footer button styles */
+footer button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Copy feedback (requires JavaScript to toggle) */
+.copy-feedback::after {
+  content: 'Copied!';
+  position: absolute;
+  background: #10b981;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.copy-feedback.copied::after {
+  opacity: 1;
+}
