@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIFID Group - Global Industry Leaders</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="statics/images/smifid_logo.jpg">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#1e3a8a',
+                        accent: '#3b82f6',
+                        light: '#eff6ff',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.6s ease-in-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-in-out;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+            <!-- Navigation -->
+            <nav class="bg-blue-900 shadow-lg sticky top-0 z-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-20">
+                        <!-- Logo -->
+                        <div class="flex-shrink-0 flex items-center">
+                            <img class="h-10 w-auto mr-2" src="statics/images/smifid_logo.jpg" alt="SMIFID Logo">
+                            <a href="https://www.shuaamisr.com" target="_blank" class="text-xl font-bold text-white hover:text-blue-200 transition duration-300">
+                                SMIFID Group
+                            </a>
+                        </div>
+    
+                        <!-- Desktop Menu -->
+                        <div class="hidden md:flex space-x-1">
+                            <a href="home.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-700 transition duration-300">Home</a>
+                            <a href="about.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">About Us</a>
+                            <!-- <a href="team.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">Our Team</a> -->
+                            <a href="portfolio.html" class="px-4 py-2 rounded-md text-white font-medium bg-blue-800 transition duration-300">Portfolio</a>
+                            <a href="contact.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">Contact</a>
+                        </div>
+    
+                        <!-- Mobile menu button -->
+                        <div class="md:hidden flex items-center">
+                            <button id="menu-btn" class="text-white focus:outline-none">
+                                <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden bg-blue-800 px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="home.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Home</a>
+                    <a href="about.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">About Us</a>
+                    <!-- <a href="team.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Our Team</a> -->
+                    <a href="portfolio.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Portfolio</a>
+                    <a href="contact.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Contact</a>
+                </div>
+            </nav>
+    
+
+    <!-- Hero Section with Background Video/Image -->
+    <section class="hero-gradient relative py-28 px-4 sm:px-6 lg:px-8 text-white">
+        <div class="absolute inset-0 bg-blue-900 opacity-50"></div>
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">SMIFID Group</h1>
+            <p class="text-2xl max-w-3xl mx-auto mb-10 fade-in">
+                With over 20 years of industry expertise, delivering excellence across multiple sectors worldwide.
+            </p>
+            <div class="flex justify-center space-x-4 fade-in">
+                <a href="#contact" class="bg-white text-blue-900 hover:bg-blue-100 font-bold py-3 px-6 rounded-full transition duration-300">
+                    Contact Us
+                </a>
+                <a href="#services" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 font-bold py-3 px-6 rounded-full transition duration-300">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Enhanced Design -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/2 slide-in-left">
+                <div class="relative">
+                    <div class="bg-blue-100 absolute -top-4 -left-4 w-full h-full rounded-xl z-0"></div>
+                    <div class="bg-blue-800 absolute -bottom-4 -right-4 w-full h-full rounded-xl z-0"></div>
+                    <div class="bg-white relative z-10 rounded-xl shadow-xl p-8 md:p-10">
+                        <h2 class="text-3xl font-bold text-blue-900 mb-6">Global Industry Leaders</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Based in Egypt with strategic branches in the United States and Kuwait, SMIFID Group has established itself as a global leader in multiple sectors.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            We provide top-tier services in oil drilling contracting, fertilizers, petrochemicals, Vietnamese rice distribution, logistics, international trading, and diesel processing.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Our commitment to quality, efficiency, and sustainable solutions sets us apart as a trusted partner in global markets, driving innovation and excellence in everything we do.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 slide-in-right">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-blue-700 rounded-lg p-6 text-white">
+                        <i class="fas fa-handshake text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Trusted Partnerships</h3>
+                        <p>Building long-term relationships with clients and suppliers worldwide.</p>
+                    </div>
+                    <div class="bg-blue-600 rounded-lg p-6 text-white">
+                        <i class="fas fa-chart-line text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Sustainable Growth</h3>
+                        <p>Committed to environmentally responsible business practices.</p>
+                    </div>
+                    <div class="bg-blue-500 rounded-lg p-6 text-white">
+                        <i class="fas fa-cogs text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Innovation</h3>
+                        <p>Continuously improving processes and adopting new technologies.</p>
+                    </div>
+                    <div class="bg-blue-400 rounded-lg p-6 text-white">
+                        <i class="fas fa-users text-3xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">Expert Team</h3>
+                        <p>Highly skilled professionals with decades of industry experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Enhanced Cards -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-blue-900 mb-4">Our Core Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We offer comprehensive solutions across multiple industries, leveraging our expertise and global network to deliver exceptional results.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-blue-700 flex items-center justify-center">
+                        <i class="fas fa-oil-well text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Oil Drilling Contracting</h3>
+                        <p class="text-gray-600 mb-4">
+                            State-of-the-art solutions for exploration and extraction with advanced technology and a skilled workforce.
+                        </p>
+                        <ul class="text-gray-600 mb-4">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Offshore and onshore drilling capabilities
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Advanced equipment and technology
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Experienced drilling personnel
+                            </li>
+                        </ul>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-blue-600 flex items-center justify-center">
+                        <i class="fas fa-gas-pump text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Diesel Processing</h3>
+                        <p class="text-gray-600 mb-4">
+                            Premium diesel fuel meeting stringent industry standards for efficiency and performance.
+                        </p>
+                        <ul class="text-gray-600 mb-4">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                High-quality fuel production
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                International standards compliance
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Efficient distribution network
+                            </li>
+                        </ul>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-seedling text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Fertilizer Production</h3>
+                        <p class="text-gray-600 mb-4">
+                            High-quality fertilizers that enhance agricultural productivity and soil health worldwide.
+                        </p>
+                        <ul class="text-gray-600 mb-4">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Organic and chemical fertilizers
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Custom formulations for various crops
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Environmentally responsible production
+                            </li>
+                        </ul>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-blue-400 flex items-center justify-center">
+                        <i class="fas fa-globe text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">International Trade</h3>
+                        <p class="text-gray-600 mb-4">
+                            Connecting businesses worldwide with high-quality products and materials.
+                        </p>
+                        <ul class="text-gray-600 mb-4">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Global supply chain management
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Import and export expertise
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Customs and regulatory compliance
+                            </li>
+                        </ul>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-blue-300 flex items-center justify-center">
+                        <i class="fas fa-truck text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Logistics Solutions</h3>
+                        <p class="text-gray-600 mb-4">
+                            Comprehensive transportation and supply chain solutions with global reach.
+                        </p>
+                        <ul class="text-gray-600 mb-4">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Maritime, air, and land transportation
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Warehousing and distribution
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Real-time cargo tracking
+                            </li>
+                        </ul>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+                    <div class="h-48 bg-blue-200 flex items-center justify-center">
+                        <i class="fas fa-flask text-white text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-900 mb-3">Petrochemical Processing</h3>
+                        <p class="text-gray-600 mb-4">
+                            Trusted supplier of petrochemical products for various industrial needs.
+                        </p>
+                        <ul class="text-gray-600 mb-4">
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Specialized chemical production
+                            </li>
+                            <li class="flex items-center mb-2">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Quality control and testing
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-blue-500 mr-2"></i>
+                                Safety and environmental compliance
+                            </li>
+                        </ul>
+                        <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- Storage Tanks Section -->
+       <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary md:text-4xl">Industrial Storage Tanks & Chemical Mixing Vessels</h2>
+            <div class="w-20 h-1 bg-accent mx-auto mt-4"></div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="mb-12">
+            <p class="text-lg text-gray-700 mb-6">
+                We provide <span class="font-semibold text-primary">integrated solutions</span> for the manufacturing and supply of high-performance <span class="font-semibold">storage tanks and chemical mixing vessels</span>, serving diverse industrial applications—particularly in the preparation of materials for <span class="font-semibold">well drilling operations</span>.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-secondary mb-4">Our Products</h3>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <li class="flex items-start">
+                    <svg class="h-6 w-6 text-accent mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span class="font-semibold">Durable Tanks:</span> Custom-designed horizontal and vertical tanks crafted from stainless steel or carbon steel, engineered to endure extreme pressures, temperatures, and harsh operating conditions.</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-6 w-6 text-accent mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span class="font-semibold">Mixing Systems:</span> Advanced mixing tanks with mechanical or automated blending systems for uniform chemical processing.</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-6 w-6 text-accent mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span class="font-semibold">Temperature Control:</span> Tanks equipped with heating/cooling systems tailored to material requirements.</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-6 w-6 text-accent mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span><span class="font-semibold">Safety & Efficiency:</span> Secure filling/discharge systems compliant with international standards.</span>
+                </li>
+            </ul>
+
+            <p class="text-gray-700">
+                <span class="font-semibold text-primary">All products adhere to ISO, ASME, and other global quality standards</span>, with <span class="font-semibold">custom engineering</span> available for capacity, design, and operational needs.
+            </p>
+        </div>
+
+
+
+<!-- Lightbox Container -->
+<div id="lightbox" class="fixed inset-0 z-50 hidden bg-black bg-opacity-90 flex items-center justify-center p-4">
+    <div class="relative max-w-6xl max-h-full">
+        <button id="close-lightbox" class="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300">
+            &times;
+        </button>
+        <img id="lightbox-image" src="" alt="" class="max-w-full max-h-screen">
+        <p id="lightbox-caption" class="text-white text-center mt-2"></p>
+    </div>
+</div>
+
+
+    <!-- Lightbox Container -->
+<div id="lightbox" class="fixed inset-0 z-50 hidden bg-black bg-opacity-95 flex items-center justify-center p-4">
+    <div class="relative max-w-6xl w-full max-h-[90vh]">
+        <button id="close-lightbox" class="absolute -top-12 right-0 text-white hover:text-gray-300 text-4xl font-light transition-colors">
+            &times;
+        </button>
+        <img id="lightbox-image" src="" alt="" class="w-full h-full object-contain rounded-lg">
+        <p id="lightbox-caption" class="text-white text-center mt-4 text-lg font-medium bg-black bg-opacity-50 rounded-lg py-2 px-4"></p>
+    </div>
+</div>
+
+
+<!-- Slideshow Container -->
+<div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <!-- Title -->
+    <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 sm:text-5xl mb-4 relative inline-block">
+            Our Solutions in Action
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+        </h2>
+        <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore our industrial tank solutions through detailed examples and specifications
+        </p>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="relative overflow-hidden">
+        <!-- Slides Container -->
+        <div id="slides-container" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Slides will be dynamically inserted here -->
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+
+        <!-- Slide Indicators -->
+        <div id="slide-indicators" class="flex justify-center mt-8 space-x-2">
+            <!-- Indicators will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+
+<script>
+// JSON Data Structure
+const tankModels = [
+    {
+        id: 1,
+        title: "Horizontal Storage Tank System",
+        image: "statics/images/tank1.jpeg",
+        alt: "Industrial horizontal tank with stainless steel construction for drilling sites",
+        keyFeatures: [
+            "Cylindrical horizontal design with dished ends for optimal pressure distribution",
+            "Heavy-duty steel construction with industrial-grade corrosion-resistant coating",
+            "Multiple welded lifting lugs rated for 5-ton capacity for easy transport",
+            "OSHA-compliant external ladder and safety cage for roof access and maintenance",
+            "Multiple inlet/outlet ports with flanged connections",
+            "Ground-level support saddles with reinforced bases"
+        ],
+        specifications: [
+            {
+                name: "Dimensions",
+                value: "Approx. 30ft (9.1m) length × 8ft (2.4m) diameter (based on image scale), with custom sizes available from 10ft to 50ft lengths",
+                icon: "M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+            },
+            {
+                name: "Capacity",
+                value: "Estimated 5,000-7,000 gallons (18,900-26,500 liters) standard capacity, with options ranging from 1,000 to 50,000 gallons",
+                icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+            },
+            {
+                name: "Working Pressure",
+                value: "Standard 10-15 PSIG (0.7-1 bar) design pressure, with custom options available up to 300 PSIG (20.7 bar) for specialized applications",
+                icon: "M8 9l4-4 4 4m0 6l-4 4-4-4"
+            },
+            {
+                name: "Temperature Range",
+                value: "-20°F to 250°F (-29°C to 121°C) standard operating range, with high-temperature options available up to 750°F (399°C) using special alloys",
+                icon: "M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+            }
+        ],
+        components: [
+            "Manway hatch", "Vent pipe", "Ladder cage", 
+            "Support saddles", "Drain valves", "Level indicators"
+        ],
+        ctaText: "Request Technical Datasheet"
+    },
+    {
+        id: 2,
+        title: "Vertical Mixing Vessel System",
+        image: "statics/images/tank2.jpeg",
+        alt: "Vertical mixing tank with top-mounted agitator",
+        keyFeatures: [
+            "Tall vertical design with conical bottom for complete drainage",
+            "Top-mounted agitator motor with gear reducer for efficient mixing",
+            "Multiple baffles visible along interior walls for optimal flow patterns",
+            "Large flanged top opening for easy access and cleaning",
+            "Stainless steel construction (304 or 316L) for corrosion resistance",
+            "Insulated jacket visible on lower section for temperature control"
+        ],
+        specifications: [
+            {
+                name: "Agitator Power",
+                value: "5-15 HP (based on vessel size), with options up to 50 HP for high-viscosity applications",
+                icon: "M13 10V3L4 14h7v7l9-11h-7z"
+            },
+            {
+                name: "Mixer Type",
+                value: "Top-mounted axial flow impeller with customizable blade configurations",
+                icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+            },
+            {
+                name: "Capacity",
+                value: "500-2,000 gallons (1,900-7,600 liters) standard size, with custom designs up to 10,000 gallons",
+                icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+            },
+            {
+                name: "Jacket Options",
+                value: "Thermal fluid heating/cooling available with multiple zone control, steam tracing, or electric heating",
+                icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+            }
+        ],
+        components: [
+            "Agitator assembly", "Gear reducer", "Top entry port",
+            "Bottom discharge", "Temperature probe", "Sight glass"
+        ],
+        ctaText: "Ask About Custom Configurations"
+    },
+    {
+        id: 3,
+        title: "Temperature-Controlled Process Tank",
+        image: "statics/images/tank3.jpeg",
+        alt: "Temperature controlled tank with insulation and heating system",
+        keyFeatures: [
+            "Full insulation blanket with aluminum cladding for energy efficiency",
+            "Multiple heat trace lines visible on piping for precise temperature control",
+            "Digital control panel mounted nearby with programmable logic",
+            "Steam-jacketed lower section for uniform heat distribution",
+            "Pressure-rated design with safety valves and rupture discs",
+            "Integrated temperature probes with multiple measurement points"
+        ],
+        specifications: [
+            {
+                name: "Temperature Range",
+                value: "-40°F to 400°F (-40°C to 204°C) standard range, with cryogenic options down to -320°F (-196°C)",
+                icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            },
+            {
+                name: "Heating Method",
+                value: "Electric heat trace + steam jacket combo system with independent zone control",
+                icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+            },
+            {
+                name: "Control Accuracy",
+                value: "±1°F (±0.5°C) standard, with high-precision options available at ±0.1°F (±0.05°C)",
+                icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            },
+            {
+                name: "Insulation Value",
+                value: "R-12 (2\" fiberglass minimum), with options up to R-30 using vacuum insulated panels",
+                icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+            }
+        ],
+        components: [
+            "Insulation jacket", "Heating coils", "Control panel",
+            "Safety valves", "Temperature sensors", "Pressure gauges"
+        ],
+        ctaText: "Get Thermal Performance Data"
+    }
+];
+
+// Function to generate HTML for a single slide
+function createSlideHTML(model) {
+    return `
+        <div class="w-full flex-shrink-0 px-4" data-id="${model.id}">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-8">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="bg-primary w-6 h-6 rounded-full mr-3"></span>
+                        ${model.title}
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                        <!-- Image Column -->
+                        <div>
+                            <div class="relative rounded-xl overflow-hidden border border-gray-200 group">
+                                <img src="${model.image}" alt="${model.alt}" 
+                                    class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105 cursor-zoom-in">
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2 border-gray-100 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                    Key Features
+                                </h4>
+                                <ul class="space-y-3 text-gray-700">
+                                    ${model.keyFeatures.map(feature => `
+                                    <li class="flex items-start">
+                                        <svg class="flex-shrink-0 h-5 w-5 text-primary mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span class="ml-3">${feature}</span>
+                                    </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Specs Column -->
+                        <div>
+                            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                                <h4 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2 border-gray-200 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                                    </svg>
+                                    Technical Specifications
+                                </h4>
+                                
+                                <div class="space-y-5">
+                                    ${model.specifications.map(spec => `
+                                    <div>
+                                        <dt class="text-sm font-medium text-gray-500 flex items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${spec.icon}" />
+                                            </svg>
+                                            ${spec.name}
+                                        </dt>
+                                        <dd class="mt-1 text-gray-800">${spec.value}</dd>
+                                    </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="text-2xl font-semibold text-gray-800 mb-4 border-b pb-2 border-gray-100 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                    </svg>
+                                    Visible Components
+                                </h4>
+                                <div class="flex flex-wrap gap-3">
+                                    ${model.components.map(component => `
+                                    <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                                        <svg class="w-3 h-3 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        ${component}
+                                    </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <button class="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+                                    ${model.ctaText}
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Initialize Slideshow
+document.addEventListener('DOMContentLoaded', function() {
+    const slidesContainer = document.getElementById('slides-container');
+    const indicatorsContainer = document.getElementById('slide-indicators');
+    
+    // Generate slides from JSON data
+    tankModels.forEach((model, index) => {
+        // Add slide
+        slidesContainer.innerHTML += createSlideHTML(model);
+        
+        // Add indicator
+        indicatorsContainer.innerHTML += `
+            <button class="slide-indicator w-3 h-3 rounded-full bg-primary ${index === 0 ? 'opacity-100' : 'opacity-50'}" data-index="${index}"></button>
+        `;
+    });
+    
+    // Slideshow navigation logic
+    const slides = document.querySelectorAll('#slides-container > div');
+    const indicators = document.querySelectorAll('.slide-indicator');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    function updateSlidePosition() {
+        slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('opacity-50', index !== currentIndex);
+            indicator.classList.toggle('opacity-100', index === currentIndex);
+        });
+    }
+    
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlidePosition();
+    }
+    
+    function goToPrev() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlidePosition();
+    }
+    
+    function goToNext() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlidePosition();
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', goToPrev);
+    nextBtn.addEventListener('click', goToNext);
+    
+    indicators.forEach(indicator => {
+        indicator.addEventListener('click', function() {
+            goToSlide(parseInt(this.dataset.index));
+        });
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') goToPrev();
+        if (e.key === 'ArrowRight') goToNext();
+    });
+    
+    // Initialize
+    updateSlidePosition();
+});
+</script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all modal buttons
+        const modalButtons = document.querySelectorAll('.modal-button');
+        
+        // Add click event to each button
+        modalButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal-target');
+                const modal = document.getElementById(modalId);
+                
+                // Show the modal
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+                
+                // Add click event to close button inside modal
+                const closeButton = modal.querySelector('[onclick="closeModal(\'' + modalId + '\')"]');
+                if (closeButton) {
+                    closeButton.addEventListener('click', function() {
+                        modal.classList.add('hidden');
+                        document.body.classList.remove('overflow-hidden');
+                    });
+                }
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('fixed') && event.target.id.startsWith('modal')) {
+                event.target.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+        
+        // Close with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modals = document.querySelectorAll('[id^="modal"]');
+                modals.forEach(modal => {
+                    if (!modal.classList.contains('hidden')) {
+                        modal.classList.add('hidden');
+                        document.body.classList.remove('overflow-hidden');
+                    }
+                });
+            }
+        });
+    });
+
+    // Separate functions for opening/closing if you need to call them directly
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+    </script>
+
+
+        <!-- CTA -->
+        <!-- <div class="text-center">
+            <a href="#contact" class="inline-block bg-accent hover:bg-primary text-white font-semibold py-3 px-8 rounded-lg transition duration-300 shadow-md">
+                Request a Custom Design Quote
+            </a>
+        </div> -->
+    </section>
+
+    <!-- Global Presence Map Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-blue-900 mb-4">Our Global Presence</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                With headquarters in Egypt and operations across multiple continents, SMIFID Group delivers excellence worldwide.
+            </p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+            <div class="mb-8 text-center">
+                <!-- World Map Placeholder -->
+                <div class="bg-blue-50 rounded-lg p-8 relative h-96 overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-blue-300 text-8xl mb-4"></i>
+                            <p class="text-blue-900 font-bold text-xl">Global Operations Map</p>
+                        </div>
+                    </div>
+
+                    <!-- Location Markers -->
+                    <div class="absolute top-1/4 left-1/4 pulse">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="absolute -top-8 -left-16 bg-blue-900 text-white px-2 py-1 rounded text-sm">Egypt (HQ)</div>
+                    </div>
+
+                    <div class="absolute top-1/3 left-1/5 pulse">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="absolute -top-8 -left-16 bg-blue-900 text-white px-2 py-1 rounded text-sm">Kuwait</div>
+                    </div>
+
+                    <div class="absolute top-1/3 left-1/6 pulse">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="absolute -top-8 -left-20 bg-blue-900 text-white px-2 py-1 rounded text-sm">United States</div>
+                    </div>
+
+                    <div class="absolute top-2/5 left-3/4 pulse">
+                        <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+                        <div class="absolute -top-8 -left-12 bg-blue-900 text-white px-2 py-1 rounded text-sm">Vietnam</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="border-l-4 border-blue-600 pl-4">
+                    <h3 class="text-lg font-bold text-blue-900 mb-2">Egypt Headquarters</h3>
+                    <p class="text-gray-600">
+                        Our main operations center coordinating global activities and housing our primary manufacturing facilities.
+                    </p>
+                </div>
+                
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="text-lg font-bold text-blue-900 mb-2">Kuwait Branch</h3>
+                    <p class="text-gray-600">
+                        Strategic Middle Eastern location focusing on oil industry services and regional distribution.
+                    </p>
+                </div>
+                
+                <div class="border-l-4 border-blue-400 pl-4">
+                    <h3 class="text-lg font-bold text-blue-900 mb-2">United States Office</h3>
+                    <p class="text-gray-600">
+                        North American presence supporting international trade and technology partnerships.
+                    </p>
+                </div>
+                
+                <div class="border-l-4 border-blue-300 pl-4">
+                    <h3 class="text-lg font-bold text-blue-900 mb-2">Vietnam Operations</h3>
+                    <p class="text-gray-600">
+                        Specialized in rice sourcing and agricultural products for global distribution.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section with Enhanced Visuals -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-blue-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Our Impact in Numbers</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">20+</div>
+                    <div class="text-xl">Years Experience</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">3</div>
+                    <div class="text-xl">Continents</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">7</div>
+                    <div class="text-xl">Core Industries</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">100+</div>
+                    <div class="text-xl">Global Partners</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">250K+</div>
+                    <div class="text-xl">Tons of Products Annually</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">50+</div>
+                    <div class="text-xl">Countries Served</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+                
+                <div class="bg-white/10 rounded-xl p-8 fade-in">
+                    <div class="text-5xl font-bold mb-4 text-blue-200">1000+</div>
+                    <div class="text-xl">Associated Workers</div>
+                    <div class="mt-4 h-1 w-16 bg-blue-400 mx-auto"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects/Case Studies Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-blue-900 mb-4">Featured Projects</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Explore our most significant achievements and partnerships across various industries.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg fade-in group">
+                <div class="h-64 bg-blue-800 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-industry text-white text-5xl"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Gulf Oil Field Development</h3>
+                        <p>Middle East</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">
+                        Comprehensive drilling and extraction services for a major oil field, delivering ahead of schedule and under budget.
+                    </p>
+                    <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center group-hover:translate-x-2 transition-transform">
+                        View case study <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg fade-in group">
+                <div class="h-64 bg-blue-700 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-seedling text-white text-5xl"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Agricultural Enhancement Program</h3>
+                        <p>North Africa</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">
+                        Supplied specialized fertilizers increasing crop yields by 30% across 50,000 acres of farmland.
+                    </p>
+                    <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center group-hover:translate-x-2 transition-transform">
+                        View case study <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project Card 3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg fade-in group">
+                <div class="h-64 bg-blue-600 relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-ship text-white text-5xl"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-70"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Global Rice Distribution Network</h3>
+                        <p>Vietnam to Middle East</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="text-gray-600 mb-4">
+                        Established efficient supply chain for premium Vietnamese rice distribution to Middle Eastern markets.
+                    </p>
+                    <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center group-hover:translate-x-2 transition-transform">
+                        View case study <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white pt-16 pb-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    <!-- About -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">About SMIFID</h3>
+                        <img src="statics/images/smifid_logo.jpg" alt="SMIFID Logo" class="h-16 mb-4">
+                        <p class="text-blue-200 mb-4">
+                            Leading Egyptian company specializing in international trade, logistics, and energy solutions with global operations.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-200 hover:text-white text-xl transition duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-blue-200 hover:text-white text-xl transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-blue-200 hover:text-white text-xl transition duration-300">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="home.html" class="text-blue-200 hover:text-white transition duration-300">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="text-blue-200 hover:text-white transition duration-300">About Us</a>
+                            </li>
+                            <li>
+                                <!-- <a href="team.html" class="text-blue-200 hover:text-white transition duration-300">Our Team</a> -->
+                            </li>
+                            <li>
+                                <a href="portfolio.html" class="text-blue-200 hover:text-white transition duration-300">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="contact.html" class="text-blue-200 hover:text-white transition duration-300">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Contact Info</h3>
+                        <ul class="space-y-3 text-blue-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                                <span>Apt. #1, Bldg #7, Omar Ibn El Khattab St., Mog #12, 10 Ramadan City, 44637 EGYPT</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3"></i>
+                                <span>+20 55 4365 911</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-mobile-alt mr-3"></i>
+                                <span>+20 10 0304 6969</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>inquiry@shuaamisr.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Newsletter -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                        <p class="text-blue-200 mb-4">
+                            Subscribe to our newsletter for the latest updates and industry insights.
+                        </p>
+                        <form class="flex flex-col space-y-3">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition duration-300">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p>&copy; 2023 Shuaa Misr For Investment & Development S.A.E. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="privacy.html" class="text-blue-200 hover:text-white transition duration-300">Privacy Policy</a>
+                        <a href="terms.html" class="text-blue-200 hover:text-white transition duration-300">Terms of Service</a>
+                        <a href="sitemap.html" class="text-blue-200 hover:text-white transition duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <script>
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Smooth scrolling for all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SMIFID - Shuaa Misr For Investment & Development</title>
+        <meta name="description" content="Leading Egyptian company in international trading, logistics, oil drilling, and agricultural exports">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" href="statics/images/smifid_logo.jpg">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+            
+            body {
+                font-family: 'Poppins', sans-serif;
+                scroll-behavior: smooth;
+            }
+            
+            .hero-gradient {
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+            }
+            
+            .card-hover-effect {
+                transition: all 0.3s ease;
+            }
+            
+            .card-hover-effect:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .section-divider {
+                position: relative;
+                height: 80px;
+                overflow: hidden;
+            }
+            
+            .section-divider::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 100%;
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+            }
+        </style>
+    </head>
+
+    <body class="flex flex-col min-h-screen bg-gray-50"> 
+        <!-- Navigation -->
+        <nav class="bg-blue-900 shadow-lg sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-auto mr-2" src="statics/images/smifid_logo.jpg" alt="SMIFID Logo">
+                        <a href="https://www.shuaamisr.com" target="_blank" class="text-xl font-bold text-white hover:text-blue-200 transition duration-300">
+                            SMIFID Group
+                        </a>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-1">
+                        <a href="home.html" class="px-4 py-2 rounded-md text-white font-medium bg-blue-800 hover:bg-blue-700 transition duration-300">Home</a>
+                        <a href="about.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">About Us</a>
+                        <!-- <a href="team.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">Our Team</a> -->
+                        <a href="portfolio.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">Portfolio</a>
+                        <a href="contact.html" class="px-4 py-2 rounded-md text-white font-medium hover:bg-blue-800 transition duration-300">Contact</a>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="menu-btn" class="text-white focus:outline-none">
+                            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-blue-800 px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="home.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">About Us</a>
+                <!-- <a href="team.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Our Team</a> -->
+                <a href="portfolio.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Portfolio</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-white font-medium hover:bg-blue-700">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero-gradient text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+                            <span class="text-blue-300">SHUAA</span> <span class="text-red-300">MISR</span>
+                        </h1>
+                        <h2 class="text-xl md:text-2xl text-blue-100 mb-6">
+                            Shuaa Misr For Investment & Development S.A.E
+                        </h2>
+                        <p class="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
+                            Pioneering excellence in international trade, logistics, and energy solutions across global markets.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="contact.html" class="bg-white text-blue-900 hover:bg-blue-100 px-6 py-3 rounded-lg font-semibold text-lg transition duration-300 text-center">
+                                Contact Us
+                            </a>
+                            <a href="portfolio.html" class="border-2 border-white text-white hover:bg-blue-800 px-6 py-3 rounded-lg font-semibold text-lg transition duration-300 text-center">
+                                Our Services
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="statics/images/smifid_logo.jpg" alt="SMIFID Logo" class="rounded-xl shadow-2xl w-64 h-64 md:w-80 md:h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Our Company</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Business Meeting" 
+                             class="rounded-xl shadow-lg w-full h-auto object-cover">
+                    </div>
+                    
+                    <div class="lg:w-1/2">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Global Presence</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Shuaa Misr International for Investment & Development S.A.E. is a leading Egyptian company with a strong international presence, specializing in trading, logistics, and energy solutions. With operational branches in Kuwait and the USA, we've established ourselves as a trusted partner in global markets.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <div class="text-blue-600 text-3xl mb-3">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h4 class="font-semibold text-lg mb-2">Global Reach</h4>
+                                <p class="text-gray-600 text-sm">Operations spanning three continents with local expertise.</p>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-6 rounded-lg">
+                                <div class="text-blue-600 text-3xl mb-3">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <h4 class="font-semibold text-lg mb-2">Quality Assurance</h4>
+                                <p class="text-gray-600 text-sm">Rigorous standards for all products and services.</p>
+                            </div>
+                        </div>
+                        
+                        <a href="about.html" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition duration-300">
+                            Learn more about us
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Core Services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive solutions tailored to meet your business needs</p>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover-effect">
+                        <div class="p-6">
+                            <div class="text-blue-600 text-4xl mb-4">
+                                <i class="fas fa-oil-well"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Oil & Gas Solutions</h3>
+                            <p class="text-gray-600 mb-4">
+                                Comprehensive oil drilling contracting services and supply of high-quality oil field chemicals for optimal operational efficiency.
+                            </p>
+                            <ul class="text-gray-600 text-sm space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Oil rig equipment supply</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Specialized chemical solutions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Technical support services</span>
+                                </li>
+                            </ul>
+                            <a href="portfolio.html#oil-gas" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center transition duration-300">
+                                Learn more
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover-effect">
+                        <div class="p-6">
+                            <div class="text-blue-600 text-4xl mb-4">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Logistics & Shipping</h3>
+                            <p class="text-gray-600 mb-4">
+                                End-to-end logistics solutions including land, sea, and air freight with customs clearance services worldwide.
+                            </p>
+                            <ul class="text-gray-600 text-sm space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Global freight forwarding</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Customs brokerage</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Supply chain optimization</span>
+                                </li>
+                            </ul>
+                            <a href="portfolio.html#logistics" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center transition duration-300">
+                                Learn more
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover-effect">
+                        <div class="p-6">
+                            <div class="text-blue-600 text-4xl mb-4">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">International Trade</h3>
+                            <p class="text-gray-600 mb-4">
+                                Facilitating global trade of premium commodities including Egyptian fruits, Vietnamese rice, and petroleum products.
+                            </p>
+                            <ul class="text-gray-600 text-sm space-y-2 mb-4">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Agricultural exports</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Commodity trading</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                    <span>Market analysis</span>
+                                </li>
+                            </ul>
+                            <a href="portfolio.html#trade" class="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center transition duration-300">
+                                Learn more
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="portfolio.html" class="inline-flex items-center px-6 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
+                        View All Services
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 bg-blue-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-2">15+</div>
+                        <div class="text-lg">Years Experience</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-2">3</div>
+                        <div class="text-lg">Continents</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-2">50+</div>
+                        <div class="text-lg">Global Partners</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-4xl font-bold mb-2">1000+</div>
+                        <div class="text-lg">Projects Completed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Highlights -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Business Portfolio</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore our diverse range of business operations</p>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Oil Rig -->
+                    <a href="portfolio.html#oil-rig" class="group relative overflow-hidden rounded-xl shadow-lg h-64 card-hover-effect">
+                        <img src="statics/portfolio/oil_rig.jpg"
+                             alt="Oil Rig" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Oil Rig Services</h3>
+                                <p class="text-blue-200 mt-1">Drilling contracting & equipment</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Diesel Processing -->
+                    <a href="portfolio.html#diesel" class="group relative overflow-hidden rounded-xl shadow-lg h-64 card-hover-effect">
+                        <img src="statics/portfolio/diesel.webp"
+                             alt="Diesel Processing" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Diesel Processing</h3>
+                                <p class="text-blue-200 mt-1">High-quality fuel solutions</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- Fertilizers -->
+                    <a href="portfolio.html#fertilizers" class="group relative overflow-hidden rounded-xl shadow-lg h-64 card-hover-effect">
+                        <img src="statics/portfolio/fertilizers.webp"
+                             alt="Fertilizers" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Fertilizers</h3>
+                                <p class="text-blue-200 mt-1">Agricultural productivity solutions</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- International Trade -->
+                    <a href="portfolio.html#trade" class="group relative overflow-hidden rounded-xl shadow-lg h-64 card-hover-effect">
+                        <img src="statics/portfolio/trade.jpg" 
+                             alt="International Trade" 
+                             class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">International Trade</h3>
+                                <p class="text-blue-200 mt-1">Global commodity trading</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="portfolio.html" class="inline-flex items-center px-6 py-3 border border-transparent text-lg font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
+                        View Full Portfolio
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Partners Say</h2>
+                    <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-6">
+                            "SMIFID has been an invaluable partner in our oil field operations. Their technical expertise and reliable supply chain have significantly improved our efficiency."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <div class="font-semibold">Ahmed Al-Mansoori</div>
+                                <div class="text-sm text-gray-500">Operations Manager, Gulf Energy</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-6">
+                            "Their logistics team handles our most complex shipments with professionalism. We've reduced customs clearance time by 40% since partnering with them."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <div class="font-semibold">Maria Gonzalez</div>
+                                <div class="text-sm text-gray-500">Supply Chain Director, AgroExport</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-6">
+                            "The quality of Egyptian fruits supplied by SMIFID consistently exceeds our expectations. Their attention to detail in packaging and transport is remarkable."
+                        </p>
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <div class="font-semibold">John Peterson</div>
+                                <div class="text-sm text-gray-500">Procurement Head, EuroFresh</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-blue-600 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Partner With Us?</h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+                    Whether you need reliable logistics, quality commodities, or energy solutions, our team is ready to assist you.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="contact.html" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold text-lg transition duration-300">
+                        Get In Touch
+                    </a>
+                    <a href="tel:+20554365911" class="border-2 border-white text-white hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Us Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white pt-16 pb-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    <!-- About -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">About SMIFID</h3>
+                        <img src="statics/images/smifid_logo.jpg" alt="SMIFID Logo" class="h-16 mb-4">
+                        <p class="text-blue-200 mb-4">
+                            Leading Egyptian company specializing in international trade, logistics, and energy solutions with global operations.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-blue-200 hover:text-white text-xl transition duration-300">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="text-blue-200 hover:text-white text-xl transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-blue-200 hover:text-white text-xl transition duration-300">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="home.html" class="text-blue-200 hover:text-white transition duration-300">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html" class="text-blue-200 hover:text-white transition duration-300">About Us</a>
+                            </li>
+                            <li>
+                                <!-- <a href="team.html" class="text-blue-200 hover:text-white transition duration-300">Our Team</a> -->
+                            </li>
+                            <li>
+                                <a href="portfolio.html" class="text-blue-200 hover:text-white transition duration-300">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="contact.html" class="text-blue-200 hover:text-white transition duration-300">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Contact Info</h3>
+                        <ul class="space-y-3 text-blue-200">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                                <span>Apt. #1, Bldg #7, Omar Ibn El Khattab St., Mog #12, 10 Ramadan City, 44637 EGYPT</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone-alt mr-3"></i>
+                                <span>+20 55 4365 911</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-mobile-alt mr-3"></i>
+                                <span>+20 10 0304 6969</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>inquiry@shuaamisr.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Newsletter -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Newsletter</h3>
+                        <p class="text-blue-200 mb-4">
+                            Subscribe to our newsletter for the latest updates and industry insights.
+                        </p>
+                        <form class="flex flex-col space-y-3">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition duration-300">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <p>&copy; 2023 Shuaa Misr For Investment & Development S.A.E. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="privacy.html" class="text-blue-200 hover:text-white transition duration-300">Privacy Policy</a>
+                        <a href="terms.html" class="text-blue-200 hover:text-white transition duration-300">Terms of Service</a>
+                        <a href="sitemap.html" class="text-blue-200 hover:text-white transition duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <script>
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Smooth scrolling for all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

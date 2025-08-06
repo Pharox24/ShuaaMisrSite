@@ -1,0 +1,66 @@
+@keyframes SlideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.slideAni {
+    animation: SlideDown 2s ease-out forwards;
+}
+
+@keyframes LeftSlide {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes RightSlide {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.LTR_Slide_Ani {
+    animation: RightSlide 2s ease-out forwards;
+}
+
+.RTL_Slide_Ani {
+    animation: LeftSlide 2s ease-out forwards;
+}
+
+
+.responsive-svg {
+    max-width: 100%;
+    height: auto;
+    padding: 15%;
+    /* padding: 15%; */
+}
+
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-7deg); }
+    50% { transform: rotate(7deg); }
+  }
+  
+/* Add animation to Tailwind */
+.hover\:animate-wiggle:hover {
+animation: wiggle 0.5s infinite;
+}
+
+a, h1, h2 {
+    font-family: "Merriweather";
+}
+
+body  {
+    background: #F7F7F7;
+}
+
