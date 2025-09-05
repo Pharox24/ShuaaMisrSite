@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMIFID Gateway</title>
+    <meta name="description" content="Gateway to SMIFID and its affiliated services including logistics, trade, energy, and employment.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="statics_gate/images/smifid_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-hover:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .icon-container {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+        }
+        
+        .card-hover:hover .icon-container {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, #bfdbfe 0%, #dbeafe 100%);
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img class="h-10 w-auto mr-2" src="statics_gate/images/smifid_logo.jpg" alt="SMIFID Logo">
+                    <span class="text-xl font-semibold">SMIFID</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-900 px-4 pb-4">
+            <div class="flex flex-col space-y-3">
+                <a href="#services" class="py-2 px-4 rounded hover:bg-blue-800">Services</a>
+                <a href="#about" class="py-2 px-4 rounded hover:bg-blue-800">About</a>
+                <a href="#contact" class="py-2 px-4 rounded hover:bg-blue-800">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+        <!-- Hero Section -->
+        <header class="relative overflow-hidden gradient-bg text-white pt-24 pb-20 md:pt-32 md:pb-28">
+            <!-- Animated background elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/5 rounded-full"></div>
+                <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-500/10 rounded-full"></div>
+                <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-blue-400/5 rounded-full"></div>
+                
+                <!-- Animated circles -->
+                <div class="absolute top-1/3 right-1/4 w-12 h-12 border-2 border-white/20 rounded-full animate-pulse"></div>
+                <div class="absolute bottom-1/4 left-1/3 w-8 h-8 border-2 border-white/15 rounded-full animate-ping"></div>
+            </div>
+            
+            <div class="container relative mx-auto px-4 flex flex-col items-center text-center z-10">
+                <!-- Logo with enhanced styling -->
+                <div class="relative mb-8">
+                    <div class="absolute -inset-4 bg-white/10 rounded-full blur-lg animate-pulse"></div>
+                    <img class="relative w-auto h-40 md:h-52 object-contain transform hover:scale-105 transition-transform duration-700" 
+                         src="statics_gate/images/smifid_logo.jpg" alt="SMIFID Pictographic Logo">
+                </div>
+                
+                <!-- Main heading with animation -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    <span class="block opacity-0 animate-fade-in-down">SMIFID</span>
+                    <span class="block text-blue-200 text-3xl md:text-4xl font-medium mt-2 opacity-0 animate-fade-in-up delay-300">Global Gateway</span>
+                </h1>
+                
+                <!-- Subheading with enhanced styling -->
+                <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed opacity-0 animate-fade-in delay-500">
+                    Your premier access point to our integrated <span class="font-semibold text-white">global solutions</span> across logistics, trade, energy, and employment services
+                </p>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-12 opacity-0 animate-fade-in delay-700">
+                    <a href="#services" class="group relative bg-white text-blue-700 font-semibold py-4 px-10 rounded-xl shadow-2xl hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1.5 flex items-center justify-center">
+                        <span>Explore Services</span>
+                        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="group relative border-2 border-white/30 bg-transparent text-white font-semibold py-4 px-10 rounded-xl shadow-2xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1.5">
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+                
+                <!-- Stats section -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto opacity-0 animate-fade-in delay-900">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">5+</div>
+                        <div class="text-blue-200 text-sm uppercase tracking-wide">Global Services</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">3</div>
+                        <div class="text-blue-200 text-sm uppercase tracking-wide">Continents</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">20+</div>
+                        <div class="text-blue-200 text-sm uppercase tracking-wide">Years</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
+                        <div class="text-blue-200 text-sm uppercase tracking-wide">Support</div>
+                    </div>
+                </div>
+                
+                <!-- Scroll indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 animate-fade-in delay-1000">
+                    <a href="#services" class="flex flex-col items-center text-blue-200 hover:text-white transition-colors">
+                        <span class="text-sm mb-2">Scroll to explore</span>
+                        <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Wave divider at bottom -->
+            <div class="absolute bottom-0 left-0 w-full">
+                <svg class="w-full h-16 text-gray-50" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
+                    <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="currentColor"></path>
+                    <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </header>
+    
+        <style>
+            @keyframes fade-in-down {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fade-in-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            
+            .animate-fade-in-down {
+                animation: fade-in-down 0.8s ease-out forwards;
+            }
+            
+            .animate-fade-in-up {
+                animation: fade-in-up 0.8s ease-out forwards;
+            }
+            
+            .animate-fade-in {
+                animation: fade-in 1s ease-out forwards;
+            }
+            
+            .delay-300 {
+                animation-delay: 0.3s;
+            }
+            
+            .delay-500 {
+                animation-delay: 0.5s;
+            }
+            
+            .delay-700 {
+                animation-delay: 0.7s;
+            }
+            
+            .delay-900 {
+                animation-delay: 0.9s;
+            }
+            
+            .delay-1000 {
+                animation-delay: 1s;
+            }
+        </style>
+
+
+    <!-- Services Section -->
+    <main id="services" class="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-semibold text-lg mb-2 block">Our Solutions</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Global Services Portfolio</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Access our comprehensive range of specialized services through dedicated portals designed for your needs</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+                <!-- SMIFID (Main Page) -->
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                    <a href="home.html" class="relative flex flex-col h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-xl text-center transition-all duration-300 transform hover:-translate-y-2" aria-label="Visit SMIFID Main Site">
+                        <div class="icon-container p-4 rounded-2xl mb-5 bg-gradient-to-br from-blue-50 to-blue-100 group-hover:from-blue-100 group-hover:to-blue-200 transition-all duration-300 mx-auto">
+                            <img class="w-16 h-16 mx-auto" src="statics_gate/svgs/globe.svg" alt="Global icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 mb-2 transition-colors">SMIFID</h3>
+                        <p class="text-sm text-gray-500 mb-4">Corporate website</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 group-hover:border-blue-100 transition-colors">
+                            <span class="text-blue-600 text-xs font-semibold flex items-center justify-center group-hover:underline">
+                                Explore portal
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- EGCSS Kuwait (Logistics) -->
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-green-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                    <a href="https://www.egcss.com" class="relative flex flex-col h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-xl text-center transition-all duration-300 transform hover:-translate-y-2" aria-label="Visit EGCSS Kuwait Logistics">
+                        <div class="icon-container p-4 rounded-2xl mb-5 bg-gradient-to-br from-green-50 to-green-100 group-hover:from-green-100 group-hover:to-green-200 transition-all duration-300 mx-auto">
+                            <img class="w-16 h-16 mx-auto" src="statics_gate/svgs/truck.svg" alt="Truck icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-green-600 mb-2 transition-colors">Logistics</h3>
+                        <p class="text-sm text-gray-500 mb-4">EGCSS Kuwait</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 group-hover:border-green-100 transition-colors">
+                            <span class="text-green-600 text-xs font-semibold flex items-center justify-center group-hover:underline">
+                                Explore portal
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- EGCSS USA (Trade) -->
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                    <a href="https://www.egcss.net" class="relative flex flex-col h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-xl text-center transition-all duration-300 transform hover:-translate-y-2" aria-label="Visit EGCSS USA Trade">
+                        <div class="icon-container p-4 rounded-2xl mb-5 bg-gradient-to-br from-red-50 to-red-100 group-hover:from-red-100 group-hover:to-red-200 transition-all duration-300 mx-auto">
+                            <img class="w-16 h-16 mx-auto" src="statics_gate/svgs/usa_flag.svg" alt="USA flag icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-red-600 mb-2 transition-colors">Trade</h3>
+                        <p class="text-sm text-gray-500 mb-4">EGCSS USA</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 group-hover:border-red-100 transition-colors">
+                            <span class="text-red-600 text-xs font-semibold flex items-center justify-center group-hover:underline">
+                                Explore portal
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Energy -->
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-amber-600 to-amber-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                    <a href="portfolio.html" class="relative flex flex-col h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-xl text-center transition-all duration-300 transform hover:-translate-y-2" aria-label="View Energy Portfolio">
+                        <div class="icon-container p-4 rounded-2xl mb-5 bg-gradient-to-br from-amber-50 to-amber-100 group-hover:from-amber-100 group-hover:to-amber-200 transition-all duration-300 mx-auto">
+                            <img class="w-16 h-16 mx-auto" src="statics_gate/svgs/oil_rig.svg" alt="Oil rig icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-amber-600 mb-2 transition-colors">Energy</h3>
+                        <p class="text-sm text-gray-500 mb-4">Portfolio & Services</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 group-hover:border-amber-100 transition-colors">
+                            <span class="text-amber-600 text-xs font-semibold flex items-center justify-center group-hover:underline">
+                                Explore portal
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- VFSA Egypt (Employment) -->
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+                    <a href="https://www.vfsa.site" class="relative flex flex-col h-full p-6 bg-white rounded-2xl shadow-md hover:shadow-xl text-center transition-all duration-300 transform hover:-translate-y-2" aria-label="Visit VFSA Egypt Employment Services">
+                        <div class="icon-container p-4 rounded-2xl mb-5 bg-gradient-to-br from-purple-50 to-purple-100 group-hover:from-purple-100 group-hover:to-purple-200 transition-all duration-300 mx-auto">
+                            <img class="w-16 h-16 mx-auto" src="statics_gate/svgs/passport.svg" alt="Passport icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-purple-600 mb-2 transition-colors">Employment</h3>
+                        <p class="text-sm text-gray-500 mb-4">VFSA Egypt</p>
+                        <div class="mt-auto pt-4 border-t border-gray-100 group-hover:border-purple-100 transition-colors">
+                            <span class="text-purple-600 text-xs font-semibold flex items-center justify-center group-hover:underline">
+                                Explore portal
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="mt-16 text-center">
+                <p class="text-gray-600 mb-6">Need assistance choosing the right service?</p>
+                <a href="#contact" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
+                    <i class="fas fa-headset mr-2"></i>
+                    Contact Our Team
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/5 rounded-full"></div>
+        <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-400/5 rounded-full"></div>
+        
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="text-center mb-16">
+                <span class="inline-block text-blue-600 font-semibold text-lg mb-3 px-4 py-1 bg-blue-50 rounded-full">Who We Are</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-5">About <span class="text-blue-600">SMIFID</span></h2>
+                <div class="w-24 h-1.5 bg-blue-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">A global enterprise with diversified interests and integrated solutions across multiple industries worldwide</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <!-- Image/Visual Content -->
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl opacity-20 blur-xl"></div>
+                    <div class="relative bg-white rounded-2xl shadow-xl p-2 transform hover:rotate-1 transition-transform duration-500">
+                        <div class="rounded-xl overflow-hidden">
+                            <div class="bg-gradient-to-br from-blue-100 to-blue-200 h-80 flex items-center justify-center">
+                                <div class="text-center p-6">
+                                    <div class="w-24 h-24 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                        <i class="fas fa-globe-americas text-4xl text-blue-600"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Global Reach</h3>
+                                    <p class="text-gray-600">Connecting markets across continents</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Our <span class="text-blue-600">Vision</span></h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">To be a leading global enterprise that delivers integrated solutions across logistics, trade, energy, and employment services, creating sustainable value for our clients and stakeholders worldwide.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="ml-4 text-gray-700"><span class="font-semibold text-gray-800">Innovation:</span> Continuously developing cutting-edge solutions</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="ml-4 text-gray-700"><span class="font-semibold text-gray-800">Excellence:</span> Maintaining the highest standards in all operations</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-check text-blue-600 text-sm"></i>
+                                </div>
+                            </div>
+                            <p class="ml-4 text-gray-700"><span class="font-semibold text-gray-800">Integrity:</span> Building trust through ethical business practices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">5+</div>
+                    <div class="text-gray-600 font-medium">Global Services</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">3</div>
+                    <div class="text-gray-600 font-medium">Continents</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">20+</div>
+                    <div class="text-gray-600 font-medium">Years Experience</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">24/7</div>
+                    <div class="text-gray-600 font-medium">Support</div>
+                </div>
+            </div>
+            
+            <!-- Global Presence Section -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 md:p-12 text-white">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6">Our <span class="text-blue-200">Global Presence</span></h3>
+                        <p class="text-blue-100 mb-6 text-lg leading-relaxed">With operations spanning across the Middle East, North America, and Africa, we bring international expertise with local understanding to all our business ventures.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Middle East</h4>
+                                    <p class="text-blue-200 text-sm">Kuwait Operations</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">North America</h4>
+                                    <p class="text-blue-200 text-sm">USA Operations</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Africa</h4>
+                                    <p class="text-blue-200 text-sm">Egypt Operations</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-500/10 p-8 flex items-center justify-center">
+                        <div class="relative w-full max-w-xs">
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <i class="fas fa-globe-americas text-white/10 text-64"></i>
+                            </div>
+                            <div class="relative">
+                                <div class="w-16 h-16 rounded-full bg-white/20 absolute top-0 right-0 flex items-center justify-center animate-pulse">
+                                    <div class="w-3 h-3 bg-white rounded-full"></div>
+                                </div>
+                                <div class="w-16 h-16 rounded-full bg-white/20 absolute bottom-10 left-4 flex items-center justify-center animate-pulse">
+                                    <div class="w-3 h-3 bg-white rounded-full"></div>
+                                </div>
+                                <div class="w-16 h-16 rounded-full bg-white/20 absolute bottom-0 right-10 flex items-center justify-center animate-pulse">
+                                    <div class="w-3 h-3 bg-white rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 px-4 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute bottom-0 left-0 w-full opacity-10">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-24">
+                <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" fill="currentColor"></path>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto relative z-10">
+            <!-- Main footer content -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-16">
+                <!-- Company Info -->
+                <div class="flex flex-col">
+                    <div class="flex items-center mb-6">
+                        <img class="h-10 w-auto mr-3" src="statics_gate/images/smifid_logo.jpg" alt="SMIFID Logo">
+                        <span class="text-xl font-bold">SMIFID</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        A global enterprise delivering integrated solutions across logistics, trade, energy, and employment services worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all transform hover:-translate-y-1" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition-all transform hover:-translate-y-1" aria-label="Twitter">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-blue-900 transition-all transform hover:-translate-y-1" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-red-600 transition-all transform hover:-translate-y-1" aria-label="YouTube">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="flex flex-col">
+                    <h4 class="text-lg font-semibold mb-6 pb-2 border-b border-gray-800 flex items-center">
+                        <i class="fas fa-link text-blue-400 mr-3"></i>
+                        Quick Links
+                    </h4>
+                    <div class="space-y-3">
+                        <a href="home.html" class="flex items-center text-gray-400 hover:text-white transition-colors group">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            SMIFID
+                        </a>
+                        <a href="https://www.egcss.com" class="flex items-center text-gray-400 hover:text-white transition-colors group">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            Logistics
+                        </a>
+                        <a href="https://www.egcss.net" class="flex items-center text-gray-400 hover:text-white transition-colors group">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            Trade
+                        </a>
+                        <a href="portfolio.html" class="flex items-center text-gray-400 hover:text-white transition-colors group">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            Energy
+                        </a>
+                        <a href="https://www.vfsa.site" class="flex items-center text-gray-400 hover:text-white transition-colors group">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            Employment
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="flex flex-col">
+                    <h4 class="text-lg font-semibold mb-6 pb-2 border-b border-gray-800 flex items-center">
+                        <i class="fas fa-id-card text-blue-400 mr-3"></i>
+                        Contact Us
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start group">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                                <i class="fas fa-envelope text-blue-400 group-hover:text-white"></i>
+                            </div>
+                            <button id="copyEmail" class="text-gray-400 hover:text-white transition-colors text-left" aria-label="Copy email address">
+                                <span class="block font-medium text-white">Email</span>
+                                <span class="text-sm">inquiry@shuaamisr.com</span>
+                            </button>
+                        </div>
+                        <div class="flex items-start group">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                                <i class="fas fa-phone text-blue-400 group-hover:text-white"></i>
+                            </div>
+                            <button id="copyPhone" class="text-gray-400 hover:text-white transition-colors text-left" aria-label="Copy phone number">
+                                <span class="block font-medium text-white">Phone</span>
+                                <span class="text-sm">(+20) 1003046969</span>
+                            </button>
+                        </div>
+                        <div class="flex items-start group">
+                            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-blue-400 group-hover:text-white"></i>
+                            </div>
+                            <div class="text-gray-400">
+                                <span class="block font-medium text-white">Location</span>
+                                <span class="text-sm">Cairo, Egypt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="flex flex-col">
+                    <h4 class="text-lg font-semibold mb-6 pb-2 border-b border-gray-800 flex items-center">
+                        <i class="fas fa-newspaper text-blue-400 mr-3"></i>
+                        Newsletter
+                    </h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="space-y-3">
+                        <input 
+                            type="email" 
+                            placeholder="Your email address" 
+                            class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-500"
+                            aria-label="Email for newsletter"
+                        >
+                        <button 
+                            type="submit" 
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center"
+                            aria-label="Subscribe to newsletter"
+                        >
+                            <span>Subscribe</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                        &copy; 2017-2025 SMIFID. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <!-- <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Terms of Service</a>
+                        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Cookie Policy</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-blue-600 text-white shadow-lg flex items-center justify-center hover:bg-blue-700 transition-all opacity-0 invisible transform translate-y-10" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <style>
+        #backToTop {
+            transition: all 0.3s ease;
+        }
+        
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Copy functionality
+        document.getElementById('copyEmail').addEventListener('click', function() {
+            navigator.clipboard.writeText('inquiry@shuaamisr.com').then(() => {
+                showToast('Email copied to clipboard!');
+            });
+        });
+
+        document.getElementById('copyPhone').addEventListener('click', function() {
+            navigator.clipboard.writeText('(+20) 1003046969').then(() => {
+                showToast('Phone number copied to clipboard!');
+            });
+        });
+    </script>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast fixed bottom-6 right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg flex items-center">
+        <i class="fas fa-check-circle mr-3"></i>
+        <span id="toastMessage">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Copy email to clipboard
+        document.getElementById('copyEmail').addEventListener('click', function() {
+            navigator.clipboard.writeText('inquiry@shuaamisr.com').then(() => {
+                showToast('Email copied to clipboard!');
+            });
+        });
+
+        // Copy phone to clipboard
+        document.getElementById('copyPhone').addEventListener('click', function() {
+            navigator.clipboard.writeText('(+20) 1003046969').then(() => {
+                showToast('Phone number copied to clipboard!');
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
